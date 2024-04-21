@@ -8101,6 +8101,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1781984511516143740, guid: d13ffd595645c2643abfff9750d440e3,
+        type: 3}
+      propertyPath: TempleInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 7171a14d14a842244bfe0589affbd188,
+        type: 2}
     - target: {fileID: 4671292066513043723, guid: d13ffd595645c2643abfff9750d440e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17503,6 +17509,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4351216734608831494, guid: ff9447d249a3b144d999c2637c0c8c8c,
+        type: 3}
+      propertyPath: TempleInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: ac8bc7beaf762d34a9392e6e9d0cf9e0,
+        type: 2}
     - target: {fileID: 7208999160868930929, guid: ff9447d249a3b144d999c2637c0c8c8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21866,6 +21878,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1854326672408219953, guid: 3e6b41145cc33f84885e52aef85189f5,
+        type: 3}
+      propertyPath: TempleInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 74cf8d8d42a6122478deb3bbca0615c1,
+        type: 2}
     - target: {fileID: 4743071416970780742, guid: 3e6b41145cc33f84885e52aef85189f5,
         type: 3}
       propertyPath: m_LocalPosition.x
