@@ -14,6 +14,8 @@ public class LightningBehavior : MonoBehaviour
     public ParticleSystem Lightning_Residue;
     public AudioSource Lightning_SFX;
 
+    private bool isActivated = false;
+
     private Vector3 lightingPos;
 
     /*private void OnEnable()
@@ -28,33 +30,34 @@ public class LightningBehavior : MonoBehaviour
 
     public void LightningInit(Vector3 test)
     {
-        lightingPos = test;
-        StartCoroutine("LightningFull");
+        if (!isActivated)
+        {
+            isActivated = true;
+
+            lightingPos = test;
+
+            StartCoroutine("LightningFull");
+        }
     }
 
     IEnumerator LightningFull()
     {
-        print("Hello2");
+        Wrapper.transform.position = lightingPos;
 
-        while (true)
-        {
-            print(lightingPos);
-            print("Hello3");
-            Wrapper.transform.position = lightingPos;// POSITION HERE FROM ROTEM
+        lightningEffect.Play();
+        Lightning_SFX.Play();
+        Lightning_Residue.Play();
 
-            yield return new WaitForSeconds(5.3f);
+        Lightning_Explosion.Play();
 
-            lightningEffect.Play();
-            Lightning_SFX.Play();
-            Lightning_Residue.Play();
+        yield return new WaitForSeconds(1f);
 
-            Lightning_Explosion.Play();
+        Lightning_Explosion.Stop();
 
-            yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1);
 
-            Lightning_Explosion.Stop();
+        isActivated = false;
 
-            yield return new WaitForSecondsRealtime(1);
-        }
+        yield break;
     }
 }

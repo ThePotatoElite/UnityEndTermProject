@@ -26,14 +26,13 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("Hello1");
 
             if (Camera.main != null)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
                 if (Physics.Raycast(ray, out RaycastHit hit))
-                    OnMousePress?.Invoke(hit.transform.position);
+                    OnMousePress?.Invoke(hit.point);
             }
 
             
