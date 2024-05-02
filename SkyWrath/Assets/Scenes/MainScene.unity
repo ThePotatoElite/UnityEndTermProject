@@ -3678,6 +3678,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &323672822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7591271706975146298, guid: d36ede0f33a604e4d9156c2bf63bdbe6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1717828002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca07ca9f39b522240bce1f601c7b6ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &327231632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17340,7 +17352,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMousePress:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 323672822}
+        m_TargetAssemblyTypeName: LightningBehavior, Assembly-CSharp
+        m_MethodName: LightningInit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1681077782
 Transform:
   m_ObjectHideFlags: 0

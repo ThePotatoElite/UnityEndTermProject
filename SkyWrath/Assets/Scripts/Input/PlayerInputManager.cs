@@ -8,20 +8,33 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputManager : MonoBehaviour
 {    
+    public static PlayerInputManager Instance;
+    
     public MousePressEvent OnMousePress;
 
     private Vector3 _position;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     public void MousePress(InputAction.CallbackContext context)
     {
-        Debug.Log("Hello1");
-
-        if (Camera.main != null)
+        if (context.started)
         {
-            _position = Camera.main.WorldToScreenPoint(Input.mousePosition);
+            Debug.Log("Hello1");
+
+            if (Camera.main != null)
+            {
+                _position = Camera.main.WorldToScreenPoint(Input.mousePosition);
+            }
+
+            OnMousePress.Invoke(_position);
         }
-        
-        OnMousePress.Invoke(_position);
     }
 
     

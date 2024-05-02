@@ -16,29 +16,30 @@ public class LightningBehavior : MonoBehaviour
 
     private Vector3 lightingPos;
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
-     //   PlayerInputManager.OnMousePress.AddListener(LightningInit);
+          PlayerInputManager.Instance.OnMousePress.AddListener(LightningInit);
     }
 
     private void OnDisable()
     {
-      //  PlayerInputManager.OnMousePress.RemoveListener(LightningInit);
-    }
+          PlayerInputManager.Instance.OnMousePress.RemoveListener(LightningInit);
+    }*/
 
-    private void LightningInit(Vector3 test)
+    public void LightningInit(Vector3 test)
     {
-        print("hello");
         lightingPos = test;
         StartCoroutine("LightningFull");
     }
 
     IEnumerator LightningFull()
     {
-        yield return new WaitForSecondsRealtime(Random.Range(1, 4));
+        print("Hello2");
 
         while (true)
         {
+            print(lightingPos);
+            print("Hello3");
             Wrapper.transform.position = lightingPos;// POSITION HERE FROM ROTEM
 
             yield return new WaitForSeconds(5.3f);
