@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Guard
       objectReference: {fileID: 0}
+    - target: {fileID: 252358957127911673, guid: 6a5084f64eb8ca7428836e7427d8c255,
+        type: 3}
+      propertyPath: m_Name
+      value: mixamorig:Hips
+      objectReference: {fileID: 0}
     - target: {fileID: 796915873128313112, guid: 6a5084f64eb8ca7428836e7427d8c255,
         type: 3}
       propertyPath: m_LocalPosition.x
