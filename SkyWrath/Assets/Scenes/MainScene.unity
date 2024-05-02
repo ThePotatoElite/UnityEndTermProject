@@ -17786,7 +17786,7 @@ PrefabInstance:
     - target: {fileID: 7591271706975146298, guid: d36ede0f33a604e4d9156c2bf63bdbe6,
         type: 3}
       propertyPath: DamageRadius
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7591271706975146298, guid: d36ede0f33a604e4d9156c2bf63bdbe6,
         type: 3}

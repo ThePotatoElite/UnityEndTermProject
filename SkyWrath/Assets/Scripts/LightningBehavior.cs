@@ -63,9 +63,12 @@ public class LightningBehavior : MonoBehaviour
         Lightning_Residue.Play();
 
         Lightning_Explosion.Play();
+        
+        yield return new WaitForSeconds(0.5f);
+        
         DestroyHitEnemies();
     
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         Lightning_Explosion.Stop();
 
@@ -89,7 +92,7 @@ public class LightningBehavior : MonoBehaviour
         foreach (var col in e)
         {
             if(col.CompareTag("Enemy"))
-                Debug.Log(col);
+                Destroy(col.GameObject());
         }
     }
     
