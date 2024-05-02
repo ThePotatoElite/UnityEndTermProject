@@ -7,15 +7,15 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerInputManager : MonoBehaviour
-{    
+{
     public MousePressEvent OnMousePress;
 
     private Vector3 _position;
 
+    
+
     public void MousePress(InputAction.CallbackContext context)
     {
-        Debug.Log("Hello1");
-
         if (Camera.main != null)
         {
             _position = Camera.main.WorldToScreenPoint(Input.mousePosition);
