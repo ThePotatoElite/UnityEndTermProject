@@ -5,7 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    [SerializeField] Transform Destination;
+    [SerializeField] 
+    Transform Destination;
+    [SerializeField]
+    private Animator animator;
+
     NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +21,13 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (agent.velocity.magnitude > 0)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 }
