@@ -78,6 +78,12 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 4167442445334688965}
+    - target: {fileID: 5113088994851819109, guid: 6a5084f64eb8ca7428836e7427d8c255,
+        type: 3}
+      propertyPath: Destination
+      value: 
+      objectReference: {fileID: 4743071416970780742, guid: 3e6b41145cc33f84885e52aef85189f5,
+        type: 3}
     - target: {fileID: 5119288881704008893, guid: 6a5084f64eb8ca7428836e7427d8c255,
         type: 3}
       propertyPath: m_Enabled
