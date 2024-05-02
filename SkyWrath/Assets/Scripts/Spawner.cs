@@ -3,14 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] EnemyPrefabs;
+    [SerializeField] private string[] AddressableEnemiesLabels;
     [SerializeField] private float TimeToSpawnMin = 1;
     [SerializeField] private float TimeToSpawnMax = 3;
 
     private float _spawnTimer;
+
+    private void Start()
+    {
+        
+    }
 
     private void Update()
     {
@@ -18,10 +25,17 @@ public class Spawner : MonoBehaviour
     }
 
 
-    private void Spawn()
+    private async void SpawnAsync()
     {
-        Instantiate(EnemyPrefabs[Random.Range(0, EnemyPrefabs.Length)], gameObject.transform.position,
-            Quaternion.identity);
+        AsyncOperationHandle<GameObject> handle =
+            Addressables.LoadAssetAsync<GameObject>(
+                AddressableEnemiesLabels[Random.Range(0, AddressableEnemiesLabels.Length)]);
+
+        await handle.Task;
+
+        Instantiate(handle.Result, transform.position, Quaternion.identity);
+        
+        Addressables.Release(handle);
     }
 
     private void SpawnerBehavior()
@@ -30,7 +44,7 @@ public class Spawner : MonoBehaviour
             _spawnTimer -= Time.deltaTime;
         else
         {
-            Spawn();
+            SpawnAsync();
             _spawnTimer = Random.Range(TimeToSpawnMin, TimeToSpawnMax);
         }
     }

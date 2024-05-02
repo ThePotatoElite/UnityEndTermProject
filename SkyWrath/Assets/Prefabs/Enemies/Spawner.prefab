@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7103dacf30ff5bc4492613c69bf96c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefabs:
-  - {fileID: 2351024492795634560, guid: 91b1834be0181044f91c7f7aa457db8f, type: 3}
-  - {fileID: 8980231556435266931, guid: c57068eb1752ca24bb42b394e8dd05b9, type: 3}
+  AddressableEnemiesLabels:
+  - Guard
+  - Vampire
   TimeToSpawnMin: 1
   TimeToSpawnMax: 3
