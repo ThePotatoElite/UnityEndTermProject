@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    
     [SerializeField] 
     Transform Destination;
     [SerializeField]
@@ -41,10 +42,12 @@ public class EnemyBehavior : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
     }
+    
 
     private void OnGameStateChanged(GameState newGameState)
     {
         agent.isStopped = newGameState == GameState.Pause;
-        print(newGameState);
     }
+
+
 }

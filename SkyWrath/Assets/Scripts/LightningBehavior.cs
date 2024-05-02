@@ -3,24 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.VFX;
 
 public class LightningBehavior : MonoBehaviour
 {
+    private const int ENEMIES_LAYERMASK = 6;
+    
     [SerializeField] private VisualEffect lightningEffect;
 
     public GameObject Wrapper;
+    
 
     [Header("Values")]
-    [SerializeField] private float damageRadius;
+    [SerializeField] float DamageRadius;
+    
     
     [Header("Particles")]
 
     public ParticleSystem Lightning_Explosion;
     public ParticleSystem Lightning_Residue;
     public AudioSource Lightning_SFX;
-
-    private SphereCollider _collider;
+    
     
     private bool isActivated = false;
 
@@ -36,12 +40,7 @@ public class LightningBehavior : MonoBehaviour
           PlayerInputManager.Instance.OnMousePress.RemoveListener(LightningInit);
     }*/
 
-    private void Start()
-    {
-        _collider = GetComponent<SphereCollider>();
-        _collider.radius = damageRadius;
-        _collider.enabled = false;
-    }
+
 
     public void LightningInit(Vector3 test)
     {
@@ -64,12 +63,11 @@ public class LightningBehavior : MonoBehaviour
         Lightning_Residue.Play();
 
         Lightning_Explosion.Play();
-        _collider.enabled = true;
-
+        DestroyHitEnemies();
+    
         yield return new WaitForSeconds(1f);
 
         Lightning_Explosion.Stop();
-        _collider.enabled = false;
 
         yield return new WaitForSecondsRealtime(1);
 
@@ -78,5 +76,21 @@ public class LightningBehavior : MonoBehaviour
         yield break;
     }
 
+
+    private Collider[] getHitColliders()
+    {
+        return Physics.OverlapSphere(lightingPos, DamageRadius);
+    }
+
+    private void DestroyHitEnemies()
+    {
+        var e = getHitColliders();
+        
+        foreach (var col in e)
+        {
+            if(col.CompareTag("Enemy"))
+                Debug.Log(col);
+        }
+    }
     
 }
