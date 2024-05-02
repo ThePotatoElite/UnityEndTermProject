@@ -17783,11 +17783,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LIGHTNING
       objectReference: {fileID: 0}
-    - target: {fileID: 5432164302155504806, guid: d36ede0f33a604e4d9156c2bf63bdbe6,
-        type: 3}
-      propertyPath: TriggerModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,10 +11,17 @@ public class LightningBehavior : MonoBehaviour
 
     public GameObject Wrapper;
 
+    [Header("Values")]
+    [SerializeField] private float damageRadius;
+    
+    [Header("Particles")]
+
     public ParticleSystem Lightning_Explosion;
     public ParticleSystem Lightning_Residue;
     public AudioSource Lightning_SFX;
 
+    private SphereCollider _collider;
+    
     private bool isActivated = false;
 
     private Vector3 lightingPos;
@@ -27,6 +35,13 @@ public class LightningBehavior : MonoBehaviour
     {
           PlayerInputManager.Instance.OnMousePress.RemoveListener(LightningInit);
     }*/
+
+    private void Start()
+    {
+        _collider = GetComponent<SphereCollider>();
+        _collider.radius = damageRadius;
+        _collider.enabled = false;
+    }
 
     public void LightningInit(Vector3 test)
     {
@@ -49,10 +64,12 @@ public class LightningBehavior : MonoBehaviour
         Lightning_Residue.Play();
 
         Lightning_Explosion.Play();
+        _collider.enabled = true;
 
         yield return new WaitForSeconds(1f);
 
         Lightning_Explosion.Stop();
+        _collider.enabled = false;
 
         yield return new WaitForSecondsRealtime(1);
 
@@ -60,4 +77,6 @@ public class LightningBehavior : MonoBehaviour
 
         yield break;
     }
+
+    
 }
