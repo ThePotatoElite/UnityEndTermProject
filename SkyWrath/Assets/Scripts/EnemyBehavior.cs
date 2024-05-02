@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,16 @@ public class EnemyBehavior : MonoBehaviour
 
     NavMeshAgent agent;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -29,5 +40,11 @@ public class EnemyBehavior : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
+    }
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        agent.isStopped = newGameState == GameState.Pause;
+        print(newGameState);
     }
 }
