@@ -21447,11 +21447,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Guard
       objectReference: {fileID: 0}
-    - target: {fileID: 2351024492795634560, guid: 91b1834be0181044f91c7f7aa457db8f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 3164716610873456954, guid: 91b1834be0181044f91c7f7aa457db8f,
         type: 3}
       propertyPath: m_LocalPosition.x
