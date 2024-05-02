@@ -8,12 +8,13 @@ using UnityEngine.VFX;
 
 public class LightningBehavior : MonoBehaviour
 {
+    private AudioManager audioManager;
+    
     private const int ENEMIES_LAYERMASK = 6;
     
     [SerializeField] private VisualEffect lightningEffect;
-
-    public GameObject Wrapper;
     
+    public GameObject Wrapper;
 
     [Header("Values")]
     [SerializeField] float DamageRadius;
@@ -40,14 +41,12 @@ public class LightningBehavior : MonoBehaviour
           PlayerInputManager.Instance.OnMousePress.RemoveListener(LightningInit);
     }*/
 
-
-
     public void LightningInit(Vector3 test)
     {
         if (!isActivated)
         {
             isActivated = true;
-
+            
             lightingPos = test;
 
             StartCoroutine("LightningFull");
