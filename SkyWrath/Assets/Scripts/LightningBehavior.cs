@@ -8,8 +8,6 @@ using UnityEngine.VFX;
 
 public class LightningBehavior : MonoBehaviour
 {
-    private AudioManager audioManager;
-    
     private const int ENEMIES_LAYERMASK = 6;
     
     [SerializeField] private VisualEffect lightningEffect;
@@ -25,7 +23,7 @@ public class LightningBehavior : MonoBehaviour
     public ParticleSystem Lightning_Explosion;
     public ParticleSystem Lightning_Residue;
     public AudioSource Lightning_SFX;
-    
+    public AudioSource DeathScream_SFX;
     
     private bool isActivated = false;
 
@@ -90,9 +88,11 @@ public class LightningBehavior : MonoBehaviour
         
         foreach (var col in e)
         {
-            if(col.CompareTag("Enemy"))
+            if (col.CompareTag("Enemy"))
+            {
+                DeathScream_SFX.Play();
                 Destroy(col.GameObject());
+            }
         }
     }
-    
 }

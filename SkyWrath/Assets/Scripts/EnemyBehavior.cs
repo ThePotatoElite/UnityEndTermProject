@@ -14,6 +14,8 @@ public class EnemyBehavior : MonoBehaviour
 
     NavMeshAgent agent;
     // Start is called before the first frame update
+    
+    AudioManager audioManager;
 
     private void Awake()
     {
@@ -43,11 +45,10 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
     
-
     private void OnGameStateChanged(GameState newGameState)
     {
         agent.isStopped = newGameState == GameState.Pause;
     }
-
-
+    
+    
 }

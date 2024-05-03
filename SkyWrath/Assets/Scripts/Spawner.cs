@@ -23,8 +23,7 @@ public class Spawner : MonoBehaviour
     {
         SpawnerBehavior();
     }
-
-
+    
     private async void SpawnAsync()
     {
         AsyncOperationHandle<GameObject> handle =

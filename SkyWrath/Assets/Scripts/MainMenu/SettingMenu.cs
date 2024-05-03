@@ -7,11 +7,13 @@ using UnityEngine.UI;
 
 public class SettingMenu : MonoBehaviour
 {
-    public AudioMixer MasterMixer;
-    public AudioMixer SFXMixer;
-    public AudioMixer NusicMixer;
+    public AudioMixer audioMixer;
     public TMP_Dropdown ResolutionDropDown;
     public TMP_Dropdown GraphicsDropDown;
+    
+    [SerializeField] Slider MasterVolumeSlider;
+    [SerializeField] Slider SFXVolumeSlider;
+    [SerializeField] Slider MusicVolumeSlider;
 
     Resolution[] resolutions;
     private void Start()
@@ -38,6 +40,11 @@ public class SettingMenu : MonoBehaviour
         QualitySettings.SetQualityLevel(2);
         GraphicsDropDown.value = 2;
         GraphicsDropDown.RefreshShownValue();
+
+        SetMasterVolume();
+        SetMusicVolume();
+        SetSFXVolume();
+        // Mute();
     }
 
     public void SetResolution(int ResolutionIndex)
@@ -45,14 +52,30 @@ public class SettingMenu : MonoBehaviour
         Resolution resolution = resolutions[ResolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-    public void SetVolume (float volume) //Alon
+    
+    public void SetMasterVolume()
     {
-
+        float volume = MasterVolumeSlider.value;
+        audioMixer.SetFloat("master", Mathf.Log10(volume)*20);
     }
 
-    public void Mute() //Alon
+    public void SetMusicVolume()
     {
-        
+        float volume = MusicVolumeSlider.value;
+        audioMixer.SetFloat("music", Mathf.Log10(volume)*20);
+    }
+    
+    public void SetSFXVolume()
+    {
+        float volume = SFXVolumeSlider.value;
+        audioMixer.SetFloat("sfx", Mathf.Log10(volume)*20);
+    }
+    
+    public void Mute()
+    {
+        audioMixer.SetFloat("master", 0);
+        audioMixer.SetFloat("music", 0);
+        audioMixer.SetFloat("sfx", 0);
     }
 
     public void SetQuality(int qualityIndex)

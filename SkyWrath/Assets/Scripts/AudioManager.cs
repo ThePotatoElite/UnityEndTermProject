@@ -4,21 +4,40 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource sfxSource;
-    
     public AudioClip backgroundMusic;
-    public AudioClip deathSound;
     public AudioClip thunder;
+    public AudioClip deathScream;
+    public AudioClip vampireHiss;
+    public AudioClip swordHit;
+    
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource sfxSource;
+    
+    private bool sfxPausedInMenu = false;
+    private bool isMuted = false;
 
     private void Start()
     {
         musicSource.clip = backgroundMusic;
         musicSource.Play();
     }
-
-    public void PlaySFX(AudioClip clip)
+    
+    /*
+    public void MuteToggle()
     {
-        sfxSource.PlayOneShot(clip);
+        isMuted = !isMuted;
+        float musicVolume = musicSource.volume;
+        float sfxVolume = sfxSource.volume;
+        if (isMuted)
+        {
+            musicSource.volume = 0;
+            sfxSource.volume = 0;
+        }
+        else
+        {
+            musicSource.volume = musicVolume;
+            sfxSource.volume = sfxVolume;
+        }
     }
+    */
 }

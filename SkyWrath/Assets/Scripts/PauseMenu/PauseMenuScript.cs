@@ -9,6 +9,7 @@ public class PauseMenuScript : MonoBehaviour
     [SerializeField] GameObject PauseMenu;
     [SerializeField] GameObject SettingsMenu;
     
+    public AudioManager audioManager; 
     public void Pause()
     {
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
