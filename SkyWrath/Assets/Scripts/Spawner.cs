@@ -13,14 +13,24 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float TimeToSpawnMax = 3;
 
     private float _spawnTimer;
+    private bool _isPaused;
+    
 
-    private void Start()
+    private void OnEnable()
     {
-        
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }
 
     private void Update()
     {
+        if(_isPaused)
+            return;
+        
         SpawnerBehavior();
     }
     
@@ -46,5 +56,16 @@ public class Spawner : MonoBehaviour
             SpawnAsync();
             _spawnTimer = Random.Range(TimeToSpawnMin, TimeToSpawnMax);
         }
+    }
+
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        if (newGameState == GameState.Pause)
+            _isPaused = true;
+        else
+        {
+            _isPaused = false;
+        }
+
     }
 }

@@ -30,6 +30,8 @@ public class LightningBehavior : MonoBehaviour
     private bool isActivated = false;
 
     private Vector3 lightingPos;
+    private bool _isPaused;
+
 
     /*private void OnEnable()
     {
@@ -40,9 +42,24 @@ public class LightningBehavior : MonoBehaviour
     {
           PlayerInputManager.Instance.OnMousePress.RemoveListener(LightningInit);
     }*/
+    
+   
+
+    private void OnEnable()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
 
     public void LightningInit(Vector3 test)
     {
+        if(_isPaused)
+            return;
+        
         if (!isActivated)
         {
             isActivated = true;
@@ -97,5 +114,16 @@ public class LightningBehavior : MonoBehaviour
                 GameManager.Instance.AddScore((int)Random.Range(75, 150));
             }
         }
+    }
+    
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        if (newGameState == GameState.Pause)
+            _isPaused = true;
+        else
+        {
+            _isPaused = false;
+        }
+
     }
 }
