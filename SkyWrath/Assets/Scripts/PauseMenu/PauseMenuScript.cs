@@ -19,6 +19,7 @@ public class PauseMenuScript : MonoBehaviour
 
         GameStateManager.Instance.SetState(newGameState);
         PauseMenu.SetActive(true);
+        Time.timeScale = 0;
     }
     public void Resume()
     {
@@ -29,6 +30,7 @@ public class PauseMenuScript : MonoBehaviour
 
         GameStateManager.Instance.SetState(newGameState);
         PauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void Settings()
