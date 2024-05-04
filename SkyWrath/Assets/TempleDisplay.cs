@@ -5,9 +5,10 @@ using UnityEngine;
 public class TempleDisplay : MonoBehaviour
 {
     [SerializeField] TempleInfo TempleInfo;
-    [SerializeField] float _hP;
-    void Start()
+    [SerializeField] int _HP = 0;
+
+    private void Update()
     {
-        _hP = TempleInfo.HP;
+        _HP = GameManager.Instance.fullSaveData.templeInfo.HP;
     }
 }

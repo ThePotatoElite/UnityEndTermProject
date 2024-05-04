@@ -49,6 +49,13 @@ public class EnemyBehavior : MonoBehaviour
     {
         agent.isStopped = newGameState == GameState.Pause;
     }
-    
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("Player"))
+        {
+            GameManager.Instance.DamageTemple(1);
+            Destroy(gameObject);
+        }
+    }
 }

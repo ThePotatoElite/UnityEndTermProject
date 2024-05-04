@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.VFX;
+using Random = UnityEngine.Random;
 
 public class LightningBehavior : MonoBehaviour
 {
@@ -92,6 +94,7 @@ public class LightningBehavior : MonoBehaviour
             {
                 DeathScream_SFX.Play();
                 Destroy(col.GameObject());
+                GameManager.Instance.AddScore((int)Random.Range(75, 150));
             }
         }
     }
