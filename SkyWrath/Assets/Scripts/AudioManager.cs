@@ -13,31 +13,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
     
-    //private bool sfxPausedInMenu = false;
-    // private bool isMuted = false;
-
     private void Start()
     {
         musicSource.clip = backgroundMusic;
         musicSource.Play();
     }
     
-    /*
-    public void MuteToggle()
-    {
-        isMuted = !isMuted;
-        float musicVolume = musicSource.volume;
-        float sfxVolume = sfxSource.volume;
-        if (isMuted)
-        {
-            musicSource.volume = 0;
-            sfxSource.volume = 0;
-        }
-        else
-        {
-            musicSource.volume = musicVolume;
-            sfxSource.volume = sfxVolume;
-        }
-    }
-    */
 }

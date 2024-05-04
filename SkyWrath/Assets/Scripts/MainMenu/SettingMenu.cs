@@ -44,7 +44,6 @@ public class SettingMenu : MonoBehaviour
         SetMasterVolume();
         SetMusicVolume();
         SetSFXVolume();
-        // Mute();
     }
 
     public void SetResolution(int ResolutionIndex)
@@ -69,13 +68,6 @@ public class SettingMenu : MonoBehaviour
     {
         float volume = SFXVolumeSlider.value;
         audioMixer.SetFloat("sfx", Mathf.Log10(volume)*20);
-    }
-    
-    public void Mute()
-    {
-        audioMixer.SetFloat("master", 0);
-        audioMixer.SetFloat("music", 0);
-        audioMixer.SetFloat("sfx", 0);
     }
 
     public void SetQuality(int qualityIndex)
