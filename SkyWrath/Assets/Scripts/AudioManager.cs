@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource sfxSource;
     
     //private bool sfxPausedInMenu = false;
-    //private bool isMuted = false;
+    // private bool isMuted = false;
 
     private void Start()
     {
