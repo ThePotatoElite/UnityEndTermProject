@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Temple Defense
+  m_text: Sky Wrath
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f43c3884d3fd6de4d812a0848bcf8dec, type: 2}
   m_sharedMaterial: {fileID: -1610665278025934042, guid: f43c3884d3fd6de4d812a0848bcf8dec,
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Load Scene
+  m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f43c3884d3fd6de4d812a0848bcf8dec, type: 2}
   m_sharedMaterial: {fileID: -1610665278025934042, guid: f43c3884d3fd6de4d812a0848bcf8dec,
