@@ -1714,6 +1714,9 @@ MonoBehaviour:
   - Vampire
   TimeToSpawnMin: 3
   TimeToSpawnMax: 5
+  Enemies:
+  - {fileID: 2351024492795634560, guid: 91b1834be0181044f91c7f7aa457db8f, type: 3}
+  - {fileID: 8980231556435266931, guid: c57068eb1752ca24bb42b394e8dd05b9, type: 3}
 --- !u!4 &81025925
 Transform:
   m_ObjectHideFlags: 0
@@ -6964,6 +6967,9 @@ MonoBehaviour:
   - Vampire
   TimeToSpawnMin: 3
   TimeToSpawnMax: 5
+  Enemies:
+  - {fileID: 2351024492795634560, guid: 91b1834be0181044f91c7f7aa457db8f, type: 3}
+  - {fileID: 8980231556435266931, guid: c57068eb1752ca24bb42b394e8dd05b9, type: 3}
 --- !u!1 &446515008 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8783306491908617939, guid: f02116c209ecd9e488fc4d2cd8996133,
@@ -13320,6 +13326,9 @@ MonoBehaviour:
   - Vampire
   TimeToSpawnMin: 3
   TimeToSpawnMax: 5
+  Enemies:
+  - {fileID: 2351024492795634560, guid: 91b1834be0181044f91c7f7aa457db8f, type: 3}
+  - {fileID: 8980231556435266931, guid: c57068eb1752ca24bb42b394e8dd05b9, type: 3}
 --- !u!1001 &848772500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17894,6 +17903,9 @@ MonoBehaviour:
   - Vampire
   TimeToSpawnMin: 3
   TimeToSpawnMax: 5
+  Enemies:
+  - {fileID: 2351024492795634560, guid: 91b1834be0181044f91c7f7aa457db8f, type: 3}
+  - {fileID: 8980231556435266931, guid: c57068eb1752ca24bb42b394e8dd05b9, type: 3}
 --- !u!1001 &1188783069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18831,6 +18843,9 @@ MonoBehaviour:
   - Vampire
   TimeToSpawnMin: 3
   TimeToSpawnMax: 5
+  Enemies:
+  - {fileID: 2351024492795634560, guid: 91b1834be0181044f91c7f7aa457db8f, type: 3}
+  - {fileID: 8980231556435266931, guid: c57068eb1752ca24bb42b394e8dd05b9, type: 3}
 --- !u!1001 &1278292125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20349,6 +20364,9 @@ MonoBehaviour:
   - Vampire
   TimeToSpawnMin: 3
   TimeToSpawnMax: 5
+  Enemies:
+  - {fileID: 2351024492795634560, guid: 91b1834be0181044f91c7f7aa457db8f, type: 3}
+  - {fileID: 8980231556435266931, guid: c57068eb1752ca24bb42b394e8dd05b9, type: 3}
 --- !u!1001 &1395348213
 PrefabInstance:
   m_ObjectHideFlags: 0

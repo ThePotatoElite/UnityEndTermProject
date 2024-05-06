@@ -5,12 +5,16 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEditor;
+using System.Threading.Tasks;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private string[] AddressableEnemiesLabels;
     [SerializeField] private float TimeToSpawnMin = 1;
     [SerializeField] private float TimeToSpawnMax = 3;
+
+    [SerializeField] private GameObject[] Enemies;
 
     private float _spawnTimer;
     private bool _isPaused;
@@ -36,15 +40,19 @@ public class Spawner : MonoBehaviour
     
     private async void SpawnAsync()
     {
-        AsyncOperationHandle<GameObject> handle =
+        /*AsyncOperationHandle<GameObject> handle =
             Addressables.LoadAssetAsync<GameObject>(
-                AddressableEnemiesLabels[Random.Range(0, AddressableEnemiesLabels.Length)]);
+                AddressableEnemiesLabels[Random.Range(0, AddressableEnemiesLabels.Length)]);*/
 
-        await handle.Task;
+        //await handle.Task;
 
-        Instantiate(handle.Result, transform.position, Quaternion.identity);
+        await Task.Delay(100);
+
+        int randomspawn = Random.Range(0, Enemies.Length);
+
+        Instantiate(Enemies[randomspawn], transform.position, Quaternion.identity);
         
-        Addressables.Release(handle);
+        //Addressables.Release(handle);
     }
 
     private void SpawnerBehavior()
