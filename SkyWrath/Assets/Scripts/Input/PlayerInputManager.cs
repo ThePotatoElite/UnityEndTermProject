@@ -51,7 +51,7 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (context.started)
         {
-            GameManager.Instance.loadGame();
+            GameManager.Instance.loadGame(GameManager.loadSetting.Update);
         }
     }
 

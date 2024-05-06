@@ -8628,6 +8628,13 @@ MonoBehaviour:
     scoreAmount: 0
     templeInfo:
       HP: 100
+    settingsData:
+      GameResolution: 0
+      IsFullScreen: 1
+      QualityIndex: 2
+      MasterVolumeSlider: 1
+      MusicVolumeSlider: 1
+      SFXVolumeSlider: 1
 --- !u!4 &550821642
 Transform:
   m_ObjectHideFlags: 0
@@ -12036,6 +12043,7 @@ MonoBehaviour:
   MasterVolumeSlider: {fileID: 1138116837}
   SFXVolumeSlider: {fileID: 499169834}
   MusicVolumeSlider: {fileID: 184742023}
+  FullscreenToggle: {fileID: 1332648008}
 --- !u!114 &763465063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14108,7 +14116,7 @@ GameObject:
   - component: {fileID: 906802932}
   - component: {fileID: 906802931}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Game Info Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14153,9 +14161,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'F1 - Save Game
+  m_text: 'Left Click - Cast Lightning
 
-    F2 - Load Game'
+    F1 - Save Game
+
+    F2 - Load Last Save'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f43c3884d3fd6de4d812a0848bcf8dec, type: 2}
   m_sharedMaterial: {fileID: -1610665278025934042, guid: f43c3884d3fd6de4d812a0848bcf8dec,
@@ -14219,7 +14229,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -61.66635, z: -175.9359, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

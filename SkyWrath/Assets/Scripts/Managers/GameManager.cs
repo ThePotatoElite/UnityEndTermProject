@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +22,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         fullSaveData.scoreAmount = 0;
+
+        loadGame(loadSetting.Start);
     }
 
     private void Update()
@@ -31,7 +35,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            loadGame();
+            loadGame(loadSetting.Update);
         }
 
         if (fullSaveData.templeInfo.HP <= 0)
@@ -50,14 +54,32 @@ public class GameManager : MonoBehaviour
         fullSaveData.scoreAmount += scoreAmnt;
     }
 
+    public enum loadSetting
+    {
+        Start,
+        Update
+    }
+
     public void saveGame()
     {
         SaveSystemService.instance.SaveToJson(fullSaveData);
     }
 
-    public void loadGame()
+    public void loadGame(loadSetting setting)
     {
-        SaveSystemService.instance.LoadFromJson();
+        switch (setting)
+        {
+            case loadSetting.Start:
+                SaveSystemService.instance.LoadFromJson();
+                break;
+            case loadSetting.Update:
+                SaveSystemService.instance.LoadFromJson();
+                SettingMenu.Instance.LoadSavedSettings();
+                break;
+            default:
+                SaveSystemService.instance.LoadFromJson();
+                break;
+        }
     }
 }
 
@@ -66,10 +88,22 @@ public class FullsaveData
 {
     public int scoreAmount;
     public TempleData templeInfo;
+    public SettingsData settingsData;
 }
 
 [System.Serializable]
 public class TempleData
 {
     public int HP = 100;
+}
+
+[System.Serializable]
+public class SettingsData
+{
+    public int GameResolution;
+    public bool IsFullScreen = true;
+    public int QualityIndex = 2;
+    public float MasterVolumeSlider = 1;
+    public float MusicVolumeSlider = 1;
+    public float SFXVolumeSlider = 1;
 }

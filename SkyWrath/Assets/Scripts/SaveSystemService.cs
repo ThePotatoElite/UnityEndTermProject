@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class SaveSystemService : MonoBehaviour
 {
@@ -27,9 +28,17 @@ public class SaveSystemService : MonoBehaviour
     public void LoadFromJson()
     {
         string filePath = Application.persistentDataPath + "/SaveData.json";
-        string saveData = System.IO.File.ReadAllText(filePath);
 
-        GameManager.Instance.fullSaveData = JsonUtility.FromJson<FullsaveData>(saveData);
-        Debug.Log("SaveData Loaded");
+        if (System.IO.File.Exists(filePath))
+        {
+            string saveData = System.IO.File.ReadAllText(filePath);
+
+            GameManager.Instance.fullSaveData = JsonUtility.FromJson<FullsaveData>(saveData);
+            Debug.Log("SaveData Loaded");
+        }
+        else
+        {
+            return;
+        }        
     }
 }
